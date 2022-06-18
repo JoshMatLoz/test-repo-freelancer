@@ -1,0 +1,296 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #ffb900;
+    --secundario: #04a925;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;    
+}
+
+html {
+    font-size: 62.5%;/* 1rem = 10px */
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+   /* font-weight: 700;  Utiliza la fuente gruesa */
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.titulo span { /* se le van a aplicar las propiedades de la clase titulo a el <span> */
+    font-size: 2rem;
+}
+
+/*h1.titulo span{
+    text-align: center;
+    font-size: 3.8rem;
+    color: red;
+}  Selecciona especificamente el <span> de la etiqueta <h1> de la clase .titulo*/
+
+.contenedor{ /* La franja verde */
+    max-width:120rem; /*Toma 1200 px como maximo si hay espacio, sino toma el 100%*/
+    margin-top: 0; /* agrega separacion */
+    margin-right: auto;
+    margin-bottom:0;
+    margin-left: auto;
+
+    /*margin: 0 auto 0 auto;
+    margin: 0 auto; otras opciones mas reducidas de margin*/ 
+}
+.sombra{
+    -webkit-box-shadow: -7px 9px 15px -5px rgba(0,0,0,1);
+    -moz-box-shadow: -7px 9px 15px -5px rgba(0,0,0,1);
+    box-shadow: -7px 9px 15px -5px rgba(0,0,0,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;  
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.navegacion-principal {
+    
+    /* padding 1rem 1rem 1rem 1rem es lo mismo */
+    display:flex;
+    flex-direction: column;
+    
+}
+
+
+.navegacion-principal a{ /* la barra de navegacion de arriba */
+    color:var(--blanco);
+    text-decoration: none; 
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    /* display: block; */
+    text-align: center;
+
+}
+/* utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+@media (min-width: 768px){
+     .w-sm-100 {
+         width:auto;
+     }
+}
+
+.alinear-derecha {
+    display: flex;
+}
+
+.flex{
+    justify-content: flex-end;
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal a:hover { /* Pseudo clase para enfatizar el color del enlace cuando pasa el puntero del mouse */
+    background-color: var(--primario);
+    color: var(--negro);
+}
+
+@media (min-width: 480px) {/* a mas de 768px el display muestra en forma de columnas */
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-evenly;/* Trabaja horizontalmente y acomoda los elementos */        
+    }
+    
+}
+
+.hero{
+    
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Estira toda la imagen al tamaño del grid */
+    background-size: cover;
+    height: 45rem;
+    position:relative; /* Contenedor padre lleva posicion relativa que viene siendo como el área en la que se va a mover el hijo */
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+
+    position: absolute ;
+    background-color: rgba(0, 0, 0, .6);/* Anterior */
+    background-color: rgb(0 0 0 / 70%); /* Nuevo */
+    width: 100%;
+    height: 100%;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco)
+}
+
+.ubicacion {
+    display: flex;
+    align-items:flex-end;
+}
+
+/* servicios */
+
+@media (min-width: 768px) {
+    .servicios {
+        display:grid;
+        /*grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px;*/
+    
+        /*grid: 200px 800px / 300px 300px;*/
+    
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+        
+    }
+}
+
+/* scroll snap */
+/* .servicios, .navegacion-principal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} */
+
+.servicio {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio p {
+    line-height: 1;
+    text-align: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+    
+}
+
+.servicio .iconos {
+    height: 11rem;
+    width: 11rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Contacto */
+
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.campo {
+    margin-bottom: 1rem;    
+}
+
+.campo label{
+    color:var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display:block;
+}
+
+.input-text{
+    width:100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+
+
+@media (min-width: 480px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+    }    
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    } 
+}
+
+.footer{
+    text-align: center;
+}
+
